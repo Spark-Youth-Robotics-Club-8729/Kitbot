@@ -22,12 +22,12 @@ public class CANLauncher extends SubsystemBase {
 
  /** Creates a new Launcher. */
  public CANLauncher() {
-   m_launchWheel = new CANSparkMax(kLauncherID, MotorType.kBrushed);
-   m_feedWheel = new CANSparkMax(kFeederID, MotorType.kBrushed);
+   m_launchWheel = new CANSparkMax(LAUNCHER_ID, MotorType.kBrushed);
+   m_feedWheel = new CANSparkMax(FEEDER_ID, MotorType.kBrushed);
 
 
-   m_launchWheel.setSmartCurrentLimit(kLauncherCurrentLimit);
-   m_feedWheel.setSmartCurrentLimit(kFeedCurrentLimit);
+   m_launchWheel.setSmartCurrentLimit(LAUNCHER_CURRENT_LIMIT);
+   m_feedWheel.setSmartCurrentLimit(FEED_CURRENT_LIMIT);
   }
 
   public synchronized void setBothWheels(double speed) {
@@ -50,7 +50,7 @@ public class CANLauncher extends SubsystemBase {
    return this.startEnd(
        // When the command is initialized, set the wheels to the intake speed values
        () -> {
-         setBothWheels(kLaunchFeederSpeed);
+         setBothWheels(LAUNCH_FEEDER_SPEED);
        },
        // When the command stops, stop the wheels
        () -> {

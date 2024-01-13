@@ -4,10 +4,9 @@
 
 package frc.robot.subsystems;
 
-import static frc.robot.Constants.DrivetrainConstants.*;
+import static frc.robot.Constants.DriveConstants.*;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+// phoenix6 import?
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -27,17 +26,17 @@ public class DriveSubsystem extends SubsystemBase {
    * member variables and perform any configuration or set up necessary on hardware.
    */
   public DriveSubsystem() {
-    CANSparkMax leftFront = new CANSparkMax(kLeftFrontID, MotorType.kBrushless);
-    CANSparkMax leftBack = new CANSparkMax(kLeftBackID, MotorType.kBrushless);
-    CANSparkMax rightFront = new CANSparkMax(kRightFrontID, MotorType.kBrushless);
-    CANSparkMax rightBack = new CANSparkMax(kRightBackID, MotorType.kBrushless);
+    WPI_VictorSPX leftFront = new WPI_VictorSPX(kLeftFrontID);
+    WPI_VictorSPX leftBack = new WPI_VictorSPX(kLeftBackID);
+    WPI_VictorSPX rightFront = new WPI_VictorSPX(kRightFrontID);
+    WPI_VictorSPX rightBack = new WPI_VictorSPX(kRightBackID);
 
     /*Sets current limits for the drivetrain motors. This helps reduce the likelihood of wheel spin, reduces motor heating
      *at stall (Drivetrain pushing against something) and helps maintain battery voltage under heavy demand */
-    leftFront.setSmartCurrentLimit(kCurrentLimit);
-    leftBack.setSmartCurrentLimit(kCurrentLimit);
-    rightFront.setSmartCurrentLimit(kCurrentLimit);
-    rightBack.setSmartCurrentLimit(kCurrentLimit);
+    leftFront.setSmartCurrentLimit(CURRENT_LIMIT);
+    leftBack.setSmartCurrentLimit(CURRENT_LIMIT);
+    rightFront.setSmartCurrentLimit(CURRENT_LIMIT);
+    rightBack.setSmartCurrentLimit(CURRENT_LIMIT);
 
     // Set the Back motors to follow the front motors.
     leftBack.follow(leftFront);

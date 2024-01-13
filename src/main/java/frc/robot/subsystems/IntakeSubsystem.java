@@ -17,8 +17,8 @@ public class IntakeSubsystem extends SubsystemBase {
 
   /** Creates a new IntakeSubsystem. */
   public IntakeSubsystem() {
-    m_intake = new CANSparkMax(kIntakeID, MotorType.kBrushless);
-    m_intake.setSmartCurrentLimit(kIntakeCurrentLimit);
+    m_intake = new CANSparkMax(INTAKE_ID, MotorType.kBrushless);
+    m_intake.setSmartCurrentLimit(INTAKE_CURRENT_LIMIT);
   }
 
   public void setMotor(double speed){

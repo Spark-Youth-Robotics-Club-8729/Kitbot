@@ -16,47 +16,59 @@ public final class Constants {
   public static class OperatorConstants {
     // Port numbers for driver and operator gamepads. These correspond with the numbers on the USB
     // tab of the DriverStation
-    public static final int kDriverControllerPort = 0;
-    public static final int kOperatorControllerPort = 1;
+    public static final int DRIVER_CONTROLLER_PORT = 0;
+    public static final int OPERATOR_CONTROLLER_PORT = 1;
   }
 
-  public static class DrivetrainConstants {
+  public static class DriveConstants {
     // PWM ports/CAN IDs for motor controllers
-    public static final int kLeftBackID = 1;
-    public static final int kLeftFrontID = 2;
-    public static final int kRightBackID = 3;
-    public static final int kRightFrontID = 4;
+    public static final int BACK_LEFT = 1;
+    public static final int FRONT_LEFT = 2;
+    public static final int BACK_RIGHT = 3;
+    public static final int FRONT_RIGHT = 4;
 
     // Current limit for drivetrain motors
-    public static final int kCurrentLimit = 60;
+    public static final int CURRENT_LIMIT = 60;
+
+    // Drive Controller axis
+    public static final int DRIVE_AXIS = 1;
+    public static final int TURN_AXIS = 4;
+    public static final double TURN_PROPORTION = 0.7;
   }
 
   public static class LauncherConstants {
+
+    // Operator controller buttons
+    public static final int SOURCE_INTAKE_BUTTON = 5;
+    public static final int LAUNCH_NOTE_BUTTON = 4;
+
     // PWM ports/CAN IDs for motor controllers
-    public static final int kFeederID = 5;
-    public static final int kLauncherID = 6;
+    public static final int FEEDER_ID = 5;
+    public static final int LAUNCHER_ID = 6;
 
     // Current limit for launcher and feed wheels
-    public static final int kLauncherCurrentLimit = 80;
-    public static final int kFeedCurrentLimit = 80;
+    public static final int LAUNCHER_CURRENT_LIMIT = 80;
+    public static final int FEED_CURRENT_LIMIT = 80;
 
     // Speeds for wheels when intaking and launching. Intake speeds are negative to run the wheels
     // in reverse
-    public static final double kLauncherSpeed = 1;
-    public static final double kLaunchFeederSpeed = 1;
-    public static final double kIntakeLauncherSpeed = -1;
-    public static final double kIntakeFeederSpeed = -.2;
+    public static final double LAUNCHER_SPEED = 1;
+    public static final double LAUNCH_FEEDER_SPEED = 1;
+    public static final double INTAKE_LAUNCHER_SPEED = -1;
+    public static final double INTAKE_FEEDER_SPEED = -.2;
 
-    public static final double kLauncherDelay = 1;
+    public static final double LAUNCHER_DELAY = 1;
   }
 
   public static class IntakeConstants{
-    // Current teleop bindings are: right trigger -> intake, right bumper -> outtake 
+    // Operator controller buttons
+    public static final int GROUND_INTAKE_BUTTON = 6;
+    public static final int GROUND_OUTTAKE_BUTTON = 7;
 
-    public static final int kIntakeID = 7;
-    public static final int kIntakeCurrentLimit = 80;
+    public static final int INTAKE_ID = 7;
+    public static final int INTAKE_CURRENT_LIMIT = 80;
 
-    public static final double intakeSpeed = 0.8;
-    public static final double outtakeSpeed = -0.8;
+    public static final double INTAKE_SPEED = 0.8;
+    public static final double OUT_TAKE_SPEED = -0.8;
   }
 }
