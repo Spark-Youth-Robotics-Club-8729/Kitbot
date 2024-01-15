@@ -4,7 +4,6 @@
 
 package frc.robot.commands;
 
-import static frc.robot.Constants.LauncherConstants.*;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.CANLauncher;
@@ -16,14 +15,17 @@ import frc.robot.subsystems.CANLauncher;
  */
 public class LaunchNote extends Command {
   CANLauncher m_launcher;
+  double m_launchspeed;
+  double m_feedspeed;
 
   // CANLauncher m_launcher;
 
   /** Creates a new LaunchNote. */
-  public LaunchNote(CANLauncher launcher) {
+  public LaunchNote(CANLauncher launcher, double launchspeed, double feedspeed) {
     // save the launcher system internally
     m_launcher = launcher;
-
+    m_launchspeed = launchspeed;
+    m_feedspeed = feedspeed;
     // indicate that this command requires the launcher system
     addRequirements(m_launcher);
   }
@@ -32,8 +34,8 @@ public class LaunchNote extends Command {
   @Override
   public void initialize() {
     // Set the wheels to launching speed
-    m_launcher.setLaunchWheel(LAUNCHER_SPEED);
-    m_launcher.setFeedWheel(LAUNCHER_FEED_SPEED);
+    m_launcher.setLaunchWheel(m_launchspeed);
+    m_launcher.setFeedWheel(m_feedspeed);
   }
 
   // Called every time the scheduler runs while the command is scheduled.

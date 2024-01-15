@@ -40,7 +40,8 @@ public final class Constants {
 
     // Operator controller buttons
     public static final int SOURCE_INTAKE_BUTTON = 5;
-    public static final int LAUNCH_NOTE_BUTTON = 4;
+    public static final int LAUNCH_NOTE_AMP_BUTTON = 4;
+    public static final int LAUNCH_NOTE_SPEAKER_BUTTON = 2;
 
     // PWM ports/CAN IDs for motor controllers
     public static final int FEEDER_ID = 5;
@@ -52,8 +53,10 @@ public final class Constants {
 
     // Speeds for wheels when intaking and launching. Intake speeds are negative to run the wheels
     // in reverse
-    public static final double LAUNCHER_SPEED = 0.25;
-    public static final double LAUNCHER_FEED_SPEED = 0.5;
+    public static final double LAUNCHER_SPEED_AMP = 0.24;
+    public static final double LAUNCHER_FEED_SPEED_AMP = 0.5;
+    public static final double LAUNCER_SPEED_SPEAKER = 1;
+    public static final double LAUNCER_FEED_SPEED_SPEAKER = 1;
     public static final double LAUNCH_SOURCE_SPEED = -1;
     public static final double INTAKE_LAUNCHER_SPEED = -1;
     public static final double INTAKE_FEEDER_SPEED = -.2;

@@ -4,7 +4,6 @@
 
 package frc.robot.commands;
 
-import static frc.robot.Constants.LauncherConstants.*;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.CANLauncher;
@@ -13,14 +12,14 @@ import frc.robot.subsystems.CANLauncher;
 
 public class PrepareLaunch extends Command {
   CANLauncher m_launcher;
-
+  double m_launchspeed;
   // CANLauncher m_launcher;
 
   /** Creates a new PrepareLaunch. */
-  public PrepareLaunch(CANLauncher launcher) {
+  public PrepareLaunch(CANLauncher launcher, double launchspeed) {
     // save the launcher system internally
     m_launcher = launcher;
-
+    m_launchspeed = launchspeed;
     // indicate that this command requires the launcher system
     addRequirements(m_launcher);
   }
@@ -29,7 +28,7 @@ public class PrepareLaunch extends Command {
   @Override
   public void initialize() {
     // Set launch wheel to speed, keep feed wheel at 0 to let launch wheel spin up.
-    m_launcher.setLaunchWheel(LAUNCHER_SPEED);
+    m_launcher.setLaunchWheel(m_launchspeed);
   }
 
   // Called every time the scheduler runs while the command is scheduled.

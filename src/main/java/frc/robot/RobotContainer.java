@@ -63,11 +63,18 @@ public class RobotContainer {
 
     /*Create an inline sequence to run when the operator presses and holds the A (green) button. Run the PrepareLaunch
      * command for 1 seconds and then run the LaunchNote command */
-    new JoystickButton(operatorController, LauncherConstants.LAUNCH_NOTE_BUTTON)
+    new JoystickButton(operatorController, LauncherConstants.LAUNCH_NOTE_AMP_BUTTON)
         .whileTrue(
-            new PrepareLaunch(LauncherSubsystem)
+            new PrepareLaunch(LauncherSubsystem, LauncherConstants.LAUNCHER_SPEED_AMP)
                 .withTimeout(LauncherConstants.LAUNCHER_DELAY)
-                .andThen(new LaunchNote(LauncherSubsystem))
+                .andThen(new LaunchNote(LauncherSubsystem, LauncherConstants.LAUNCHER_SPEED_AMP, LauncherConstants.LAUNCHER_FEED_SPEED_AMP))
+                .handleInterrupt(() -> LauncherSubsystem.stop()));
+
+    new JoystickButton(operatorController, LauncherConstants.LAUNCH_NOTE_SPEAKER_BUTTON)
+        .whileTrue(
+            new PrepareLaunch(LauncherSubsystem, LauncherConstants.LAUNCER_SPEED_SPEAKER)
+                .withTimeout(LauncherConstants.LAUNCHER_DELAY)
+                .andThen(new LaunchNote(LauncherSubsystem, LauncherConstants.LAUNCER_SPEED_SPEAKER, LauncherConstants.LAUNCER_FEED_SPEED_SPEAKER))
                 .handleInterrupt(() -> LauncherSubsystem.stop()));
 
     // Set up a binding to run the intake command while the operator is pressing and holding the
